@@ -291,6 +291,64 @@
   }
   .beyond strong { color: var(--ink); }
 
+  /* Calibration: status tags on phase cards + legend strip */
+  .status {
+    display: inline-block;
+    font-family: var(--label);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: 1px;
+  }
+  .status--shipped { background: rgba(91, 122, 94, 0.12); color: var(--sage-deep); }
+  .status--scope { background: rgba(74, 85, 104, 0.10); color: var(--slate); }
+  .status--wip { background: transparent; color: var(--meta); border: 1px dashed rgba(122, 122, 122, 0.45); padding: 1px 7px; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-family: var(--label);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--meta);
+    margin: 0 0 28px;
+    padding: 12px 16px;
+    background: var(--off);
+    border-radius: var(--radius);
+  }
+  .legend span { display: inline-flex; align-items: center; }
+  .legend .glyph {
+    display: inline-block;
+    width: 14px;
+    text-align: center;
+    margin-right: 8px;
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .legend .glyph--shipped { color: var(--sage-deep); }
+  .legend .glyph--scope { color: var(--slate); }
+  .legend .glyph--wip { color: var(--meta); }
+
+  /* "What this didn't solve" gap blocks */
+  .gaps { display: grid; gap: 16px; margin-top: 28px; }
+  .gap {
+    background: var(--off);
+    border-left: 3px solid var(--sage);
+    padding: 20px 24px;
+    border-radius: 2px;
+  }
+  .gap h4 { color: var(--ink); margin: 0 0 8px; font-size: 16px; }
+  .gap p { color: var(--body); font-size: 15px; margin: 0; }
+  .gap p + p { margin-top: 8px; }
+  .gap em { color: var(--muted); font-style: italic; }
+
   /* Footer */
   footer { padding: 40px 0 32px; border-top: 1px solid var(--rule); }
   footer .row {
@@ -335,9 +393,9 @@
       <h1>Holger Gevers</h1>
       <div class="callout" role="region" aria-label="At a glance">
         <p class="label label--sage">At a glance</p>
-        <p>How a Both&amp; Zoho Creator assessment became <strong>five repositories, a development engine, a C runtime, and two research papers</strong> — in 18 days. Every artifact is public, auditable, and functional.</p>
+        <p>The Both&amp; assessment was a Zoho Creator expense system. <strong>It shipped — that is Phase 1.</strong> The five repositories that follow are exploration the assessment provoked: partial, ongoing, instructive. Their value is in what they revealed, not in what they finish.</p>
       </div>
-      <p class="thesis">A working assessment, an extracted tooling engine, a second domain to validate it, a mathematical framework that formalises the intuition, a C runtime that makes it deployable, and a web IDE that closes the loop.</p>
+      <p class="thesis">One repo answers the brief. The five around it are the 18 days of internal exploration that the brief triggered — a tooling engine, a second domain, a mathematical framework, a C runtime, and a web IDE. Two are shipped end-to-end. Three are functional in scope but not yet complete. All of them taught me something the assessment alone could not.</p>
       <div class="cta-row">
         <a class="btn btn--primary" href="https://holgerrgevers.github.io/ForgeDS/" target="_blank" rel="noopener">Open the ForgeDS IDE <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn btn--ghost" href="#repos">View the repositories</a>
@@ -351,14 +409,20 @@
     <div class="wrap">
       <p class="label">The journey</p>
       <h2>Six phases · 18 days</h2>
-      <p style="max-width: 720px; color: var(--muted); margin-bottom: 32px;">
-        Each phase responded to a concrete need from the previous one. Patterns from the expense system became <span class="mono">ForgeDS</span>. <span class="mono">ForgeDS</span> proved itself on a second domain. A reusable validator formalised into mathematics. The mathematics needed a fast runtime. The tooling needed a UI.
+      <p style="max-width: 720px; color: var(--muted); margin-bottom: 24px;">
+        Each phase responded to a concrete need from the previous one. Some closed; others remain open. Patterns from the expense system became <span class="mono">ForgeDS</span>. <span class="mono">ForgeDS</span> proved itself on a second domain. The reusable validator's intuition formalised into mathematics. The mathematics gained a fast runtime. The tooling gained a web UI — though not yet a complete one.
       </p>
+
+      <div class="legend" role="note" aria-label="Status legend">
+        <span><span class="glyph glyph--shipped" aria-hidden="true">✓</span>Shipped end-to-end</span>
+        <span><span class="glyph glyph--scope" aria-hidden="true">◐</span>Functional in scope</span>
+        <span><span class="glyph glyph--wip" aria-hidden="true">◌</span>In progress / known limits</span>
+      </div>
 
       <div class="grid grid--3">
 
         <article class="card">
-          <p class="meta">PHASE 01 · 6 – 8 Apr 2026</p>
+          <p class="meta">PHASE 01 · 6 – 8 Apr 2026 <span class="status status--shipped" title="Shipped end-to-end">Shipped</span></p>
           <h3>The assessment</h3>
           <p class="summary">Found 7 flaws in the original flowchart before writing code. Shipped a governance-first expense system: 7 forms, 13 Deluge scripts, 44 linter rules, full SA compliance.</p>
           <div class="skills">
@@ -374,7 +438,7 @@
         </article>
 
         <article class="card">
-          <p class="meta">PHASE 02 · 9 Apr 2026</p>
+          <p class="meta">PHASE 02 · 9 Apr 2026 <span class="status status--scope" title="Functional in scope; not yet end-to-end app generation">Functional in scope</span></p>
           <h3>The abstraction</h3>
           <p class="summary">Patterns extracted into a standalone development engine: 3 linters (65 combined rules), .ds parser/editor, scaffold generator, validator, knowledge base, reality check.</p>
           <div class="skills">
@@ -390,7 +454,7 @@
         </article>
 
         <article class="card">
-          <p class="meta">PHASE 03 · 10 Apr 2026</p>
+          <p class="meta">PHASE 03 · 10 Apr 2026 <span class="status status--shipped" title="Shipped end-to-end at scope">Shipped</span></p>
           <h3>Domain transfer</h3>
           <p class="summary">ForgeDS validated against a different domain: chargeback management across Adyen, Ingenico, Stripe. ETL pipeline normalising 9 438+ statement files. CFO dashboard shipped on Pages.</p>
           <div class="skills">
@@ -406,9 +470,9 @@
         </article>
 
         <article class="card">
-          <p class="meta">PHASE 04 · 13 – 22 Apr 2026</p>
+          <p class="meta">PHASE 04 · 13 – 22 Apr 2026 <span class="status status--scope" title="Theorem L sealed; broader framework still being written">Functional in scope</span></p>
           <h3>The mathematical leap</h3>
-          <p class="summary">"Reality Check" intuition formalised into a framework: projection functions, cross-projection constraints, residuals, closed-world assumption. Core attribution theorem sealed after 4 adversarial rounds.</p>
+          <p class="summary">When AI generates a low-code app from a user's description, two projections must align — the AI's projection of the database, and the user's projection of their own intent. HRC formalises that question: projection functions, cross-projection constraints, residuals, closed-world assumption. Core attribution theorem sealed after 4 adversarial review rounds.</p>
           <div class="skills">
             <p class="label">Skills</p>
             <div class="tag-row">
@@ -422,7 +486,7 @@
         </article>
 
         <article class="card">
-          <p class="meta">PHASE 05 · 18 Apr 2026</p>
+          <p class="meta">PHASE 05 · 18 Apr 2026 <span class="status status--scope" title="Slice 1 ABI shipped; further slices planned">Functional in scope</span></p>
           <h3>Systems programming</h3>
           <p class="summary">Pure C11 runtime, zero external dependencies. Arena allocator, plugin architecture, ABI-stable headers, golden tests, threat model. Scaffold to passing CI in one day, 15 commits.</p>
           <div class="skills">
@@ -438,9 +502,9 @@
         </article>
 
         <article class="card">
-          <p class="meta">PHASE 06 · 21 – 22 Apr 2026</p>
+          <p class="meta">PHASE 06 · 21 – 22 Apr 2026 <span class="status status--wip" title="Piecewise editor works; from-scratch app generation has known gaps">In progress / known limits</span></p>
           <h3>The IDE</h3>
-          <p class="summary">ForgeDS came full circle as a web app: AI-powered app builder, visual .ds editor, database migration manager, dashboard wizard, multi-agent persona round-table. TypeScript + Vite.</p>
+          <p class="summary">Reverse-engineered Zoho Creator's <span class="mono">.ds</span> format, blueprint structure, and authority ladder. Currently a piecewise editor for existing apps; from-scratch generation produces schema reliably, but not dashboards. The original goal was end-to-end app generation. The lesson — about what AI can and cannot yet assemble in low-code — was the deliverable.</p>
           <div class="skills">
             <p class="label">Skills</p>
             <div class="tag-row">
@@ -499,7 +563,10 @@
   <section id="repos">
     <div class="wrap">
       <p class="label">Repository index</p>
-      <h2>Five repositories</h2>
+      <h2>Five repositories — two shipped, three in progress</h2>
+      <p style="max-width: 720px; color: var(--muted); margin-top: 8px; margin-bottom: 0;">
+        Status badges below reflect each repo's current state at its declared scope, not its long-term ambition.
+      </p>
       <div class="grid grid--repos" style="margin-top: 28px;">
 
         <article class="card repo">
@@ -517,7 +584,7 @@
             <h3>ForgeDS</h3>
             <span class="badge badge--active">Active development</span>
           </div>
-          <p class="summary">Zoho Creator rapid development engine plus an AI-powered web IDE: linters, scaffold generator, .ds editor, knowledge base, reality check.</p>
+          <p class="summary">Zoho Creator development engine plus an in-progress web IDE: linters work end-to-end, scaffold generator works, <span class="mono">.ds</span> editing works on existing apps. From-scratch app generation is partial — schema yes, dashboards not yet.</p>
           <p class="langs">Python · TypeScript · Deluge</p>
           <a class="card-link" href="https://github.com/HolgerRGevers/ForgeDS" target="_blank" rel="noopener">github.com/HolgerRGevers/ForgeDS →</a>
         </article>
@@ -553,6 +620,36 @@
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- WHAT THIS DIDN'T SOLVE -->
+  <section id="gaps">
+    <div class="wrap">
+      <p class="label">Calibration</p>
+      <h2>What this didn't solve</h2>
+      <p style="max-width: 720px; color: var(--muted); margin-bottom: 0;">
+        Three honest gaps the work surfaced but did not close. They are not pivot moments — they describe the <em>current</em> state of low-code AI generation, observed from the inside.
+      </p>
+
+      <div class="gaps">
+        <div class="gap">
+          <h4>Relational integrity in AI-generated low-code</h4>
+          <p>AI can already produce schemas and field definitions reliably. What it does <em>not</em> yet do is encode the <strong>relational importance</strong> between tables — which foreign key matters for which workflow, which lookup carries which authority, which form blocks which downstream step. The Lego blocks exist; the architectural intent that connects them does not.</p>
+        </div>
+        <div class="gap">
+          <h4>Honest calibration in AI builders</h4>
+          <p>Every AI surface ends with "verify this — AI can make mistakes." That disclaimer is itself an admission the underlying problem is unsolved. The real question is whether the AI can flag, <em>in advance</em>, where its own confidence is not aligned with reality. HRC's projection-residuals (Phase 4) are a candidate mechanism. Nothing in the IDE yet uses them.</p>
+        </div>
+        <div class="gap">
+          <h4>Dashboards from scratch</h4>
+          <p>ForgeDS's <span class="mono">.ds</span> generator can produce a working schema. It cannot yet produce a working dashboard, which is often the crux of why a customer wanted the app in the first place. A parallel case study using Zia AI to build the same expense app produced solid schema scaffolding but missed cross-form linking, workflow logic, and permission hierarchy — the same gap from the other side of the same coin.</p>
+        </div>
+      </div>
+
+      <p style="max-width: 720px; color: var(--body); margin-top: 28px; font-size: 15px;">
+        Low-code is the natural building material for AI app generation: pattern-based, modular, declarative. With reliable relational encoding and honest confidence calibration, end-to-end AI-built Zoho Creator apps become plausible inside the next year. The foundational building blocks are already in place. What's missing is the engineering of <em>relational strength</em> — and an AI honest enough to say where it isn't sure.
+      </p>
     </div>
   </section>
 
@@ -607,8 +704,8 @@
       <ul class="beyond">
         <li><strong>Abstraction instinct.</strong> Seeing reusable patterns and extracting them into tools (ForgeDS) rather than copy-pasting between projects.</li>
         <li><strong>Domain transfer.</strong> Proving the tools work on a different problem (chargebacks) validates the abstraction was real, not accidental.</li>
-        <li><strong>Depth over breadth.</strong> Going from "build a form" to "prove the mathematical invariants that guarantee the form is correct" — each layer justified by concrete need, not theoretical ambition.</li>
-        <li><strong>Ship velocity.</strong> 5 repos, 133+ commits, 3 languages, 2 shipped products, 2 research papers, 1 theorem — 18 days. Every artifact public, auditable, functional.</li>
+        <li><strong>Depth over breadth.</strong> Going from "build a form" to "formalise the mathematical invariants that would guarantee an AI-generated form is correct" — each layer justified by a concrete problem hit one phase earlier, not by theoretical ambition.</li>
+        <li><strong>Ship velocity, with calibration.</strong> 2 products shipped end-to-end (Phases 1 and 3). 3 explorations functional in scope but not yet complete (Phases 2, 5, 6). 1 research framework with a sealed core theorem (Phase 4). 133+ commits, 3 languages, 18 days. Every artifact public and auditable; honest about what's done and what isn't.</li>
       </ul>
     </div>
   </section>
