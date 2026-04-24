@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holger Gevers — Skills Journey</title>
+<meta name="description" content="From a Zoho Creator assessment to five repositories, a C runtime, and two research papers in 18 days. The skills journey of Holger Gevers.">
+<link rel="canonical" href="https://holgergevers-hub.github.io/Portfolio/">
+<meta property="og:title" content="Holger Gevers — Skills Journey">
+<meta property="og:description" content="From a Zoho Creator assessment to five repositories, a C runtime, and two research papers in 18 days.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://holgergevers-hub.github.io/Portfolio/">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --body: #2a2a2a;
+    --muted: #5a5a5a;
+    --meta: #7a7a7a;
+    --slate: #4a5568;
+    --sage: #5b7a5e;
+    --sage-deep: #4a6650;
+    --linen: #f0f0ec;
+    --paper: #ffffff;
+    --off: #f5f5f2;
+    --rule: #e0e0dc;
+
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: Verdana, 'DejaVu Sans', Geneva, Tahoma, sans-serif;
+    --label: 'Trebuchet MS', 'Lucida Sans', Helvetica, sans-serif;
+    --mono: 'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace;
+
+    --max: 1100px;
+    --gutter: 24px;
+    --radius: 4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--linen);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accent bars (echo email template) */
+  .accent-bar { height: 4px; background: var(--slate); width: 100%; }
+
+  /* Layout */
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  main { background: transparent; }
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  /* Section labels */
+  .label {
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 16px;
+  }
+  .label--sage { color: var(--sage); }
+
+  /* Headings */
+  h1, h2, h3, h4 { color: var(--ink); margin: 0 0 16px; line-height: 1.25; letter-spacing: -0.005em; }
+  h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 600; }
+  h2 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 600; }
+  h3 { font-size: 18px; font-weight: 700; }
+  h4 { font-size: 15px; font-weight: 700; }
+  p { margin: 0 0 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--sage); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 120ms ease; }
+  a:hover { border-bottom-color: var(--sage); }
+  a:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; border-radius: 2px; }
+
+  code, .mono { font-family: var(--mono); font-size: 0.92em; }
+
+  /* Hero */
+  .hero { padding-top: 72px; padding-bottom: 64px; }
+  .hero h1 { margin-bottom: 12px; }
+  .hero .role {
+    color: var(--meta);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin: 0 0 24px;
+  }
+  .hero .thesis {
+    font-size: clamp(17px, 2vw, 19px);
+    color: var(--body);
+    max-width: 720px;
+    margin: 0 0 32px;
+    line-height: 1.55;
+  }
+  .hero .thesis strong { color: var(--ink); font-weight: 700; }
+
+  /* Buttons */
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 12px 22px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+  }
+  .btn:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+  .btn--primary {
+    background: var(--sage);
+    color: #ffffff;
+    border-color: var(--sage);
+  }
+  .btn--primary:hover {
+    background: var(--sage-deep);
+    border-color: var(--sage-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(91, 122, 94, 0.18);
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--slate);
+    border-color: var(--slate);
+  }
+  .btn--ghost:hover {
+    background: var(--slate);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+  .btn .arrow { font-family: var(--mono); font-size: 16px; line-height: 1; }
+
+  /* Callout (At a Glance) */
+  .callout {
+    background: var(--off);
+    border-left: 3px solid var(--sage);
+    padding: 20px 24px;
+    margin: 0 0 32px;
+    border-radius: 2px;
+  }
+  .callout .label { color: var(--sage); margin-bottom: 8px; }
+  .callout p { color: #3d3d3d; font-size: 15px; }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 720px) {
+    .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 960px) {
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .grid--repos { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Card */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  .card:hover { border-color: var(--slate); box-shadow: 0 2px 12px rgba(74, 85, 104, 0.06); }
+  @media (prefers-reduced-motion: reduce) {
+    .card, .btn { transition: none; }
+    .btn:hover { transform: none; }
+  }
+
+  .card .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--meta);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .card h3 { margin: 0; }
+  .card .summary { color: var(--body); font-size: 15px; margin: 0; }
+  .card .skills { margin-top: auto; }
+  .card .skills .label { font-size: 10px; margin-bottom: 6px; }
+  .card .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    display: inline-block;
+    font-family: var(--label);
+    font-size: 11px;
+    color: var(--slate);
+    background: var(--off);
+    border: 1px solid var(--rule);
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+  .card-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--sage);
+    border-bottom: 1px solid transparent;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+  .card-link:hover { border-bottom-color: var(--sage); }
+
+  /* Repo card extras */
+  .repo .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .repo h3 { font-family: var(--mono); font-size: 16px; font-weight: 700; }
+  .badge {
+    display: inline-block;
+    font-family: var(--label);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .badge--shipped { background: rgba(91, 122, 94, 0.12); color: var(--sage-deep); }
+  .badge--active { background: rgba(74, 85, 104, 0.10); color: var(--slate); }
+  .langs { font-family: var(--mono); font-size: 12px; color: var(--meta); margin: 4px 0 0; }
+
+  /* Skills matrix */
+  .matrix-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper); }
+  table.matrix { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 14px; }
+  table.matrix th, table.matrix td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--rule); }
+  table.matrix thead th {
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: var(--off);
+  }
+  table.matrix tbody th { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  table.matrix tr:last-child td, table.matrix tr:last-child th { border-bottom: none; }
+  table.matrix .check { color: var(--sage); font-weight: 700; }
+  table.matrix .em { color: var(--body); }
+  table.matrix .dash { color: var(--rule); }
+
+  /* Both& criteria list */
+  .criteria { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+  .criteria li {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .criteria li:last-child { border-bottom: none; }
+  .criteria .num {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--sage);
+    font-weight: 700;
+  }
+  .criteria .q { color: var(--ink); font-weight: 700; margin: 0 0 4px; }
+  .criteria .a { color: var(--body); font-size: 15px; margin: 0; }
+
+  .beyond { display: grid; gap: 12px; margin-top: 24px; padding-left: 0; list-style: none; }
+  .beyond li { padding-left: 20px; position: relative; color: var(--body); font-size: 15px; }
+  .beyond li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+    font-weight: 700;
+  }
+  .beyond strong { color: var(--ink); }
+
+  /* Footer */
+  footer { padding: 40px 0 32px; border-top: 1px solid var(--rule); }
+  footer .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: var(--meta);
+    font-size: 13px;
+  }
+  footer .row a { color: var(--meta); }
+  footer .row a:hover { color: var(--slate); border-bottom-color: var(--slate); }
+
+  /* Skip link */
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+  }
+  .skip:focus {
+    position: fixed;
+    top: 8px; left: 8px;
+    background: var(--ink);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 2px;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<div class="accent-bar" aria-hidden="true"></div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="role">Independent engineer · researcher · Cape Town</p>
+      <h1>Holger Gevers</h1>
+      <div class="callout" role="region" aria-label="At a glance">
+        <p class="label label--sage">At a glance</p>
+        <p>How a Both&amp; Zoho Creator assessment became <strong>five repositories, a development engine, a C runtime, and two research papers</strong> — in 18 days. Every artifact is public, auditable, and functional.</p>
+      </div>
+      <p class="thesis">A working assessment, an extracted tooling engine, a second domain to validate it, a mathematical framework that formalises the intuition, a C runtime that makes it deployable, and a web IDE that closes the loop.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="https://holgerrgevers.github.io/ForgeDS/" target="_blank" rel="noopener">Open the ForgeDS IDE <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#repos">View the repositories</a>
+        <a class="btn btn--ghost" href="ASSESSMENT_GUIDE.md">Read the assessment guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey">
+    <div class="wrap">
+      <p class="label">The journey</p>
+      <h2>Six phases · 18 days</h2>
+      <p style="max-width: 720px; color: var(--muted); margin-bottom: 32px;">
+        Each phase responded to a concrete need from the previous one. Patterns from the expense system became <span class="mono">ForgeDS</span>. <span class="mono">ForgeDS</span> proved itself on a second domain. A reusable validator formalised into mathematics. The mathematics needed a fast runtime. The tooling needed a UI.
+      </p>
+
+      <div class="grid grid--3">
+
+        <article class="card">
+          <p class="meta">PHASE 01 · 6 – 8 Apr 2026</p>
+          <h3>The assessment</h3>
+          <p class="summary">Found 7 flaws in the original flowchart before writing code. Shipped a governance-first expense system: 7 forms, 13 Deluge scripts, 44 linter rules, full SA compliance.</p>
+          <div class="skills">
+            <p class="label">Skills</p>
+            <div class="tag-row">
+              <span class="tag">Process analysis</span>
+              <span class="tag">Zoho Creator</span>
+              <span class="tag">Deluge</span>
+              <span class="tag">King IV / SARS / POPIA</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://github.com/HolgerRGevers/expense_reimbursement_manager" target="_blank" rel="noopener">expense_reimbursement_manager →</a>
+        </article>
+
+        <article class="card">
+          <p class="meta">PHASE 02 · 9 Apr 2026</p>
+          <h3>The abstraction</h3>
+          <p class="summary">Patterns extracted into a standalone development engine: 3 linters (65 combined rules), .ds parser/editor, scaffold generator, validator, knowledge base, reality check.</p>
+          <div class="skills">
+            <p class="label">Skills</p>
+            <div class="tag-row">
+              <span class="tag">Static analysis</span>
+              <span class="tag">CLI design</span>
+              <span class="tag">Python packaging</span>
+              <span class="tag">Code generation</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://github.com/HolgerRGevers/ForgeDS" target="_blank" rel="noopener">ForgeDS →</a>
+        </article>
+
+        <article class="card">
+          <p class="meta">PHASE 03 · 10 Apr 2026</p>
+          <h3>Domain transfer</h3>
+          <p class="summary">ForgeDS validated against a different domain: chargeback management across Adyen, Ingenico, Stripe. ETL pipeline normalising 9 438+ statement files. CFO dashboard shipped on Pages.</p>
+          <div class="skills">
+            <p class="label">Skills</p>
+            <div class="tag-row">
+              <span class="tag">ETL design</span>
+              <span class="tag">Multi-currency</span>
+              <span class="tag">Dashboard / DataViz</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://github.com/HolgerRGevers/Ten_Chargeback" target="_blank" rel="noopener">Ten_Chargeback →</a>
+        </article>
+
+        <article class="card">
+          <p class="meta">PHASE 04 · 13 – 22 Apr 2026</p>
+          <h3>The mathematical leap</h3>
+          <p class="summary">"Reality Check" intuition formalised into a framework: projection functions, cross-projection constraints, residuals, closed-world assumption. Core attribution theorem sealed after 4 adversarial rounds.</p>
+          <div class="skills">
+            <p class="label">Skills</p>
+            <div class="tag-row">
+              <span class="tag">Formal methods</span>
+              <span class="tag">Graph theory</span>
+              <span class="tag">Attribution theory</span>
+              <span class="tag">Paper writing</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://github.com/holgergevers-hub/hologram-reality-clause" target="_blank" rel="noopener">hologram-reality-clause →</a>
+        </article>
+
+        <article class="card">
+          <p class="meta">PHASE 05 · 18 Apr 2026</p>
+          <h3>Systems programming</h3>
+          <p class="summary">Pure C11 runtime, zero external dependencies. Arena allocator, plugin architecture, ABI-stable headers, golden tests, threat model. Scaffold to passing CI in one day, 15 commits.</p>
+          <div class="skills">
+            <p class="label">Skills</p>
+            <div class="tag-row">
+              <span class="tag">C systems</span>
+              <span class="tag">ABI design</span>
+              <span class="tag">CMake / cross-compile</span>
+              <span class="tag">Threat modelling</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://github.com/holgergevers-hub/VLMN" target="_blank" rel="noopener">VLMN →</a>
+        </article>
+
+        <article class="card">
+          <p class="meta">PHASE 06 · 21 – 22 Apr 2026</p>
+          <h3>The IDE</h3>
+          <p class="summary">ForgeDS came full circle as a web app: AI-powered app builder, visual .ds editor, database migration manager, dashboard wizard, multi-agent persona round-table. TypeScript + Vite.</p>
+          <div class="skills">
+            <p class="label">Skills</p>
+            <div class="tag-row">
+              <span class="tag">TypeScript / Vite</span>
+              <span class="tag">Multi-agent patterns</span>
+              <span class="tag">AI integration</span>
+              <span class="tag">Design systems</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://holgerrgevers.github.io/ForgeDS/" target="_blank" rel="noopener">Open the live IDE →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS MATRIX -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="label">Skills matrix</p>
+      <h2>What deepened where</h2>
+      <p style="max-width: 720px; color: var(--muted); margin-bottom: 28px;">
+        Each row maps a skill domain to the phase where it first appeared and how it was used. Filled cells indicate active work; em-dash indicates the domain was not exercised in that phase.
+      </p>
+      <div class="matrix-wrap">
+        <table class="matrix" aria-label="Skills demonstrated across the six project phases">
+          <thead>
+            <tr>
+              <th scope="col">Skill domain</th>
+              <th scope="col">P1 Expense</th>
+              <th scope="col">P2 ForgeDS</th>
+              <th scope="col">P3 Chargeback</th>
+              <th scope="col">P4 HRC</th>
+              <th scope="col">P5 VLMN</th>
+              <th scope="col">P6 IDE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Process analysis</th><td class="em">7-flaw critique</td><td class="dash">—</td><td class="em">State mapping</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
+            <tr><th scope="row">SA compliance</th><td class="em">King IV / SARS / POPIA</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
+            <tr><th scope="row">Zoho Creator</th><td class="em">Deluge / approvals</td><td class="em">.ds parsing</td><td class="em">.ds generation</td><td class="dash">—</td><td class="dash">—</td><td class="em">Visual editor</td></tr>
+            <tr><th scope="row">Python</th><td class="em">Validation</td><td class="em">Linters / CLI</td><td class="em">ETL (stdlib only)</td><td class="em">Reference impl</td><td class="em">Golden tests</td><td class="dash">—</td></tr>
+            <tr><th scope="row">Static analysis</th><td class="dash">—</td><td class="em">65 lint rules</td><td class="em">Validated via ForgeDS</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
+            <tr><th scope="row">DevOps / CI</th><td class="dash">—</td><td class="em">Pages</td><td class="em">Pages</td><td class="em">4-leg matrix</td><td class="em">CMake + CTest</td><td class="em">Vite build</td></tr>
+            <tr><th scope="row">C programming</th><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="em">Acceleration</td><td class="em">Full C11 runtime</td><td class="dash">—</td></tr>
+            <tr><th scope="row">Mathematics / research</th><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="em">Theorems / papers</td><td class="em">ABI formalisation</td><td class="dash">—</td></tr>
+            <tr><th scope="row">Web / frontend</th><td class="dash">—</td><td class="dash">—</td><td class="em">Dashboard</td><td class="dash">—</td><td class="dash">—</td><td class="em">TypeScript / Vite</td></tr>
+            <tr><th scope="row">Architecture</th><td class="em">4-layer system</td><td class="em">Plugin</td><td class="em">ETL pipeline</td><td class="em">Formal structures</td><td class="em">Arena + ABI</td><td class="em">Multi-agent</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPO INDEX -->
+  <section id="repos">
+    <div class="wrap">
+      <p class="label">Repository index</p>
+      <h2>Five repositories</h2>
+      <div class="grid grid--repos" style="margin-top: 28px;">
+
+        <article class="card repo">
+          <div class="row">
+            <h3>expense_reimbursement_manager</h3>
+            <span class="badge badge--shipped">Shipped · v1.0.0</span>
+          </div>
+          <p class="summary">Governance-first expense system with full South African compliance — King IV, SARS, POPIA, GL coding.</p>
+          <p class="langs">Python · Deluge</p>
+          <a class="card-link" href="https://github.com/HolgerRGevers/expense_reimbursement_manager" target="_blank" rel="noopener">github.com/HolgerRGevers/expense_reimbursement_manager →</a>
+        </article>
+
+        <article class="card repo">
+          <div class="row">
+            <h3>ForgeDS</h3>
+            <span class="badge badge--active">Active development</span>
+          </div>
+          <p class="summary">Zoho Creator rapid development engine plus an AI-powered web IDE: linters, scaffold generator, .ds editor, knowledge base, reality check.</p>
+          <p class="langs">Python · TypeScript · Deluge</p>
+          <a class="card-link" href="https://github.com/HolgerRGevers/ForgeDS" target="_blank" rel="noopener">github.com/HolgerRGevers/ForgeDS →</a>
+        </article>
+
+        <article class="card repo">
+          <div class="row">
+            <h3>Ten_Chargeback</h3>
+            <span class="badge badge--shipped">Shipped · v1.0.0</span>
+          </div>
+          <p class="summary">Chargeback management across Adyen, Ingenico, and Stripe. ETL pipeline, multi-currency conversion, CFO dashboard on Pages.</p>
+          <p class="langs">Python · JavaScript · Deluge</p>
+          <a class="card-link" href="https://github.com/HolgerRGevers/Ten_Chargeback" target="_blank" rel="noopener">github.com/HolgerRGevers/Ten_Chargeback →</a>
+        </article>
+
+        <article class="card repo">
+          <div class="row">
+            <h3>hologram-reality-clause</h3>
+            <span class="badge badge--active">Active research · v0.2.0</span>
+          </div>
+          <p class="summary">Mathematical framework for multi-perspective invariant analysis. Core attribution theorem sealed after four adversarial review rounds.</p>
+          <p class="langs">Python · C · TeX</p>
+          <a class="card-link" href="https://github.com/holgergevers-hub/hologram-reality-clause" target="_blank" rel="noopener">github.com/holgergevers-hub/hologram-reality-clause →</a>
+        </article>
+
+        <article class="card repo">
+          <div class="row">
+            <h3>VLMN</h3>
+            <span class="badge badge--active">Scaffold + Slice 1</span>
+          </div>
+          <p class="summary">Pure C11 runtime for Very Large Memory Neurons. Arena allocator, plugin architecture, ABI-stable headers, four-OS CI matrix.</p>
+          <p class="langs">C · CMake</p>
+          <a class="card-link" href="https://github.com/holgergevers-hub/VLMN" target="_blank" rel="noopener">github.com/holgergevers-hub/VLMN →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR BOTH& -->
+  <section id="bothand">
+    <div class="wrap">
+      <p class="label">For the Both&amp; assessment team</p>
+      <h2>The five evaluation criteria</h2>
+      <p style="max-width: 720px; color: var(--muted); margin-bottom: 28px;">
+        This showcase is structured to answer the five evaluation criteria identified in the original assessment analysis.
+      </p>
+
+      <ul class="criteria">
+        <li>
+          <span class="num">01</span>
+          <div>
+            <p class="q">Can you analyse a process critically?</p>
+            <p class="a">Phase 1 found 7 flaws in the original flowchart before writing code.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div>
+            <p class="q">Do you understand the business context?</p>
+            <p class="a">GL mapping, King IV governance, SARS compliance, delegation-of-authority matrices — the system was designed around <em>why</em> expense controls exist, not just <em>how</em> they work.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div>
+            <p class="q">Can you learn a new tool under pressure?</p>
+            <p class="a">Zoho Creator was self-taught for the assessment. The response was to build a development engine for it.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <div>
+            <p class="q">Can you build a working prototype?</p>
+            <p class="a">Two shipped applications — expense + chargeback — both with <span class="mono">.ds</span> files ready for one-click Zoho import.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">05</span>
+          <div>
+            <p class="q">Can you communicate what you built and why?</p>
+            <p class="a">Every design decision is documented with rationale. Every compliance control traces to a specific King IV principle or SARS provision.</p>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top: 40px;">Beyond the assessment</h3>
+      <ul class="beyond">
+        <li><strong>Abstraction instinct.</strong> Seeing reusable patterns and extracting them into tools (ForgeDS) rather than copy-pasting between projects.</li>
+        <li><strong>Domain transfer.</strong> Proving the tools work on a different problem (chargebacks) validates the abstraction was real, not accidental.</li>
+        <li><strong>Depth over breadth.</strong> Going from "build a form" to "prove the mathematical invariants that guarantee the form is correct" — each layer justified by concrete need, not theoretical ambition.</li>
+        <li><strong>Ship velocity.</strong> 5 repos, 133+ commits, 3 languages, 2 shipped products, 2 research papers, 1 theorem — 18 days. Every artifact public, auditable, functional.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <p style="margin: 0;">Built with Python, C, TypeScript, Deluge, and Claude Code.</p>
+        <p style="margin: 0;">
+          <a href="README.md">README</a> ·
+          <a href="ASSESSMENT_GUIDE.md">Assessment guide</a> ·
+          <a href="SKILLS_MATRIX.md">Full skills matrix</a> ·
+          <a href="LICENSE">License</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<div class="accent-bar" aria-hidden="true"></div>
+</body>
+</html>
